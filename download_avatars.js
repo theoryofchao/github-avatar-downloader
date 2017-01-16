@@ -57,7 +57,6 @@ var downloadImageByUrl = function(url, filePath) {
     throw err;
   })
   .on('response', function (response) {
-    console.log('Response Status Code: ', response.statusCode, response.headers['content-type']);
     if(response.statusCode == '200') {
       console.log('Downloading image...');
     }
