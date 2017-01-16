@@ -6,8 +6,12 @@ var repoName = process.argv[3];
 var GITHUB_USER = `theoryofchao`;
 var GITHUB_TOKEN = `ee332f8ba77bb666bdf4e99ddbdba563146ce545`;
 
+
+
 var getRepoContributors = function(repoOwner, repoName, callback) {
-  callback();  
+  var requestURL = 'https://'+ GITHUB_USER + ':' + GITHUB_TOKEN + '@api.github.com/repos/' + repoOwner + '/' + repoName + '/contributors';
+  console.log(requestURL)    
+        callback();  
 };
 
 getRepoContributors(repoOwner, repoName, (err, result) => {
