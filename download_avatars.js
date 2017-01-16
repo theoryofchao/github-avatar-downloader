@@ -18,7 +18,21 @@ var getRepoContributors = function(repoOwner, repoName, callback) {
   request.get({url: requestUrl, headers: requestHeaders}, callback);
 };
 
+var getAvatarUrl = function(err,result) {
+  var body = JSON.parse(result.body);
 
-getRepoContributors(repoOwner, repoName, (err, result) => {
-  console.log("Results:",result);  
-});
+  body.forEach( (result) => {
+    console.log(result['avatar_url']);
+  });
+};
+
+getRepoContributors(repoOwner, repoName, getAvatarUrl);
+
+/*getRepoContributors(repoOwner, repoName, (err, result) => {
+  var body = JSON.parse(result.body);
+
+  body.forEach( (result) => {
+    console.log(result['avatar_url']);
+  });
+
+});*/
