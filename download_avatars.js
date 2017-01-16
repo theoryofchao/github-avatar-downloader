@@ -1,9 +1,13 @@
 var request = require('request');
 var fs = require('fs');
-var saveFile = require(`./fs_functions`);
 
-var repoOwner = process.argv[2];
-var repoName = process.argv[3];
+var owner = process.argv[2];
+var repo = process.argv[3];
+
+if (typeof owner === "undefined" || typeof repo === "undefined"){
+  console.log("Please input valid Owner and Repo in Command!");
+  return false;
+}
 
 var GITHUB_USER = `theoryofchao`;
 var GITHUB_TOKEN = `ee332f8ba77bb666bdf4e99ddbdba563146ce545`;
@@ -67,4 +71,4 @@ var downloadImageByUrl = function(url, filePath) {
   });
 };
 
-getRepoContributors(repoOwner, repoName, getAvatarUrl);
+getRepoContributors(owner, repo, getAvatarUrl);
