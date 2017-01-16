@@ -38,12 +38,9 @@ var getRepoContributors = function(repoOwner, repoName, callback) {
   */
 var getAvatarUrl = function(err,result) {
   var body = JSON.parse(result.body);
-
-  console.log(body[0].avatar_url);
-  //downloadImageByUrl(body[0].avatar_url, "./avatars/blah.jpg");
   body.forEach( (result) => {
     //Saves Avatars to File
-    downloadImageByUrl(result[`avatar_url`], `./avatars/${result.login}.jpg`);
+    downloadImageByUrl(result[`avatar_url`], `./avatars/${result.login}`);
   });
 };
 
@@ -55,7 +52,7 @@ var getAvatarUrl = function(err,result) {
   * @return {}
   */
 var downloadImageByUrl = function(url, filePath) {
-  request.get('https://sytantris.github.io/http-examples/future.jpg')
+  request.get(url)
   .on('error', function (err) {
     throw err;
   })
