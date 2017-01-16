@@ -1,0 +1,29 @@
+{
+  "name": "github-avatar-downloader",
+  "version": "1.0.0",
+  "description": "Lighthouse Labs Project for downloading Github Avatars",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/theoryofchao/github-avatar-downloader.git"
+  },
+  "keywords": [
+    "github",
+    "avatar",
+    "download",
+    "lighthouse",
+    "labs"
+  ],
+  "author": "Roger Chao",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/theoryofchao/github-avatar-downloader/issues"
+  },
+  "homepage": "https://github.com/theoryofchao/github-avatar-downloader#readme",
+  "dependencies": {
+    "request": "^2.79.0"
+  }
+}
