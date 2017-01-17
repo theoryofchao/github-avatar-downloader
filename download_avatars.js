@@ -7,7 +7,7 @@ var repo = process.argv[3];
 
 //Checks to see if owner and repo are defined
 if (typeof owner === "undefined" || typeof repo === "undefined"){
-  console.log("Please input valid Owner and Repo in Command!");
+  console.error("Please input valid Owner and Repo in Command!");
   return false;
 }
 
@@ -43,6 +43,12 @@ var getRepoContributors = function(repoOwner, repoName, callback) {
   * @return {Number} sum
   */
 var getAvatarUrl = function(err,result) {
+
+  if(JSON.parse(result.body).message === "Not Found") {
+    console.error("Incorrect Owner or Repo Supplied");
+    return false;
+  }
+
   var body = JSON.parse(result.body);
   body.forEach( (result) => {
     //Saves Avatars to File
