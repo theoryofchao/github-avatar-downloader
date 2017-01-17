@@ -18,8 +18,6 @@ if (!fs.existsSync(`./avatars`)){
 
 var GITHUB_USER = process.env.GITHUB_USER;
 var GITHUB_TOKEN = process.env.GITHUB_TOKEN;
-console.log(GITHUB_USER);
-console.log(GITHUB_TOKEN);
 
 /**
   * Get Repository Contributors and pass the results to Callback
