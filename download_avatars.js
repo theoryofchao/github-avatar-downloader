@@ -1,17 +1,25 @@
+require('dotenv').config();
 var request = require('request');
 var fs = require('fs');
 
 var owner = process.argv[2];
 var repo = process.argv[3];
 
+//Checks to see if owner and repo are defined
 if (typeof owner === "undefined" || typeof repo === "undefined"){
   console.log("Please input valid Owner and Repo in Command!");
   return false;
 }
 
-var GITHUB_USER = `theoryofchao`;
-var GITHUB_TOKEN = `ee332f8ba77bb666bdf4e99ddbdba563146ce545`;
+//Creates avatars folder if not available
+if (!fs.existsSync(`./avatars`)){
+  fs.mkdirSync(`./avatars`);
+}
 
+var GITHUB_USER = process.env.GITHUB_USER;
+var GITHUB_TOKEN = process.env.GITHUB_TOKEN;
+console.log(GITHUB_USER);
+console.log(GITHUB_TOKEN);
 
 /**
   * Get Repository Contributors and pass the results to Callback
